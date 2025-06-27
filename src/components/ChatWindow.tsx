@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ChatHeader from "./ChatHeader";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
@@ -15,6 +15,7 @@ interface ChatWindowProps {
 
 const ChatWindow = ({ messages, onSendMessage, onClose, isTyping }: ChatWindowProps) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -24,9 +25,21 @@ const ChatWindow = ({ messages, onSendMessage, onClose, isTyping }: ChatWindowPr
     scrollToBottom();
   }, [messages, isTyping]);
 
+  const handleToggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const chatWindowClasses = isExpanded 
+    ? "fixed inset-0 w-full h-full bg-white shadow-2xl flex flex-col z-50 animate-scale-in"
+    : "fixed bottom-0 right-0 w-full sm:w-[420px] h-full sm:h-[700px] bg-white shadow-2xl flex flex-col z-50 animate-slide-in-right border-l border-slate-200 sm:rounded-tl-2xl overflow-hidden";
+
   return (
-    <div className="fixed bottom-0 right-0 w-full sm:w-[420px] h-full sm:h-[700px] bg-white shadow-2xl flex flex-col z-50 animate-slide-in-right border-l border-slate-200 sm:rounded-tl-2xl overflow-hidden">
-      <ChatHeader onClose={onClose} />
+    <div className={chatWindowClasses}>
+      <ChatHeader 
+        onClose={onClose} 
+        isExpanded={isExpanded}
+        onToggleExpand={handleToggleExpand}
+      />
       
       <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-slate-50 to-white">
         {messages.length === 0 ? (

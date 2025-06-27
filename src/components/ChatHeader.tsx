@@ -1,11 +1,13 @@
 
-import { X, Bot, Minimize2 } from "lucide-react";
+import { X, Bot, Minimize2, Maximize2 } from "lucide-react";
 
 interface ChatHeaderProps {
   onClose: () => void;
+  isExpanded: boolean;
+  onToggleExpand: () => void;
 }
 
-const ChatHeader = ({ onClose }: ChatHeaderProps) => {
+const ChatHeader = ({ onClose, isExpanded, onToggleExpand }: ChatHeaderProps) => {
   return (
     <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 flex items-center justify-between border-b border-slate-700/50">
       <div className="flex items-center space-x-4">
@@ -25,10 +27,11 @@ const ChatHeader = ({ onClose }: ChatHeaderProps) => {
       </div>
       <div className="flex items-center space-x-2">
         <button
+          onClick={onToggleExpand}
           className="p-2 hover:bg-slate-700 rounded-lg transition-colors duration-200"
-          aria-label="Minimize chat"
+          aria-label={isExpanded ? "Minimize chat" : "Expand chat"}
         >
-          <Minimize2 size={18} />
+          {isExpanded ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
         </button>
         <button
           onClick={onClose}
