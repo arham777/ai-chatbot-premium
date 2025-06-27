@@ -53,7 +53,7 @@ const ChatWindow = ({ messages, onSendMessage, onClose, isTyping }: ChatWindowPr
           </div>
         ) : (
           messages.map((message) => (
-            <ChatMessage key={message.id} message={message} />
+            <ChatMessage key={message.id} message={message} onSendMessage={onSendMessage} />
           ))
         )}
         {isTyping && <TypingIndicator />}
