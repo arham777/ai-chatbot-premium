@@ -1,5 +1,5 @@
 
-import { X, Bot } from "lucide-react";
+import { X, Bot, Minimize2 } from "lucide-react";
 
 interface ChatHeaderProps {
   onClose: () => void;
@@ -7,23 +7,37 @@ interface ChatHeaderProps {
 
 const ChatHeader = ({ onClose }: ChatHeaderProps) => {
   return (
-    <div className="bg-blue-600 text-white p-4 flex items-center justify-between">
-      <div className="flex items-center space-x-3">
-        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-          <Bot size={16} />
+    <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 flex items-center justify-between border-b border-slate-700/50">
+      <div className="flex items-center space-x-4">
+        <div className="relative">
+          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
+            <Bot size={20} className="text-white" />
+          </div>
+          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-slate-900 animate-pulse"></div>
         </div>
         <div>
-          <h3 className="font-semibold">AI Assistant</h3>
-          <p className="text-blue-100 text-xs">Online • Typically replies instantly</p>
+          <h3 className="font-semibold text-lg">AI Assistant</h3>
+          <p className="text-slate-300 text-sm flex items-center">
+            <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+            Online • Typically replies instantly
+          </p>
         </div>
       </div>
-      <button
-        onClick={onClose}
-        className="p-1 hover:bg-blue-500 rounded transition-colors"
-        aria-label="Close chat"
-      >
-        <X size={20} />
-      </button>
+      <div className="flex items-center space-x-2">
+        <button
+          className="p-2 hover:bg-slate-700 rounded-lg transition-colors duration-200"
+          aria-label="Minimize chat"
+        >
+          <Minimize2 size={18} />
+        </button>
+        <button
+          onClick={onClose}
+          className="p-2 hover:bg-slate-700 rounded-lg transition-colors duration-200"
+          aria-label="Close chat"
+        >
+          <X size={18} />
+        </button>
+      </div>
     </div>
   );
 };
