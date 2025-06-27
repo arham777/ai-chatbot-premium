@@ -12,16 +12,16 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
 
   if (message.isUser) {
     return (
-      <div className="flex justify-end animate-fade-in group">
-        <div className="max-w-[75%] bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-3 rounded-2xl rounded-br-md shadow-lg hover:shadow-xl transition-all duration-200">
-          <p className="text-sm leading-relaxed font-medium">{message.text}</p>
-          <p className="text-xs text-blue-100 mt-2 opacity-80">
+      <div className="flex justify-end group">
+        <div className="max-w-[75%] bg-black text-white p-3 rounded-lg rounded-br-md border border-neutral-200 hover:border-neutral-300 transition-all duration-200">
+          <p className="text-sm leading-relaxed font-normal">{message.text}</p>
+          <p className="text-xs text-neutral-300 mt-2 opacity-80">
             {formatTime(message.timestamp)}
           </p>
         </div>
         <div className="ml-3 mt-1">
-          <div className="w-7 h-7 bg-gradient-to-r from-slate-600 to-slate-700 rounded-full flex items-center justify-center shadow-md">
-            <User size={14} className="text-white" />
+          <div className="w-7 h-7 bg-neutral-100 border border-neutral-200 rounded-full flex items-center justify-center">
+            <User size={14} className="text-black" />
           </div>
         </div>
       </div>
@@ -29,15 +29,15 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
   }
 
   return (
-    <div className="flex justify-start animate-fade-in group">
+    <div className="flex justify-start group">
       <div className="mr-3 mt-1">
-        <div className="w-7 h-7 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-md">
+        <div className="w-7 h-7 bg-black rounded-full flex items-center justify-center">
           <Bot size={14} className="text-white" />
         </div>
       </div>
-      <div className="max-w-[75%] bg-white p-3 rounded-2xl rounded-bl-md shadow-lg hover:shadow-xl transition-all duration-200 border border-slate-100">
-        <p className="text-sm text-slate-800 leading-relaxed">{message.text}</p>
-        <p className="text-xs text-slate-500 mt-2">
+      <div className="max-w-[75%] bg-neutral-50 p-3 rounded-lg rounded-bl-md border border-neutral-200 hover:border-neutral-300 transition-all duration-200">
+        <p className="text-sm text-black leading-relaxed font-normal">{message.text}</p>
+        <p className="text-xs text-neutral-500 mt-2">
           {formatTime(message.timestamp)}
         </p>
       </div>

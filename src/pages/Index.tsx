@@ -1,4 +1,5 @@
-import ChatWidget from "@/components/ChatWidget";
+import { useRef } from "react";
+import ChatWidget, { ChatWidgetRef } from "@/components/ChatWidget";
 import { Button } from "@/components/ui/button";
 import WorldMap from "@/components/ui/world-map";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
@@ -15,6 +16,12 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  const chatWidgetRef = useRef<ChatWidgetRef>(null);
+
+  const handleStartConversation = () => {
+    chatWidgetRef.current?.openChat();
+  };
+
   // SNGPL service coverage data points (major cities and regions in Pakistan)
   const sngplCoverage = [
     {
@@ -111,6 +118,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button 
                   size="lg" 
+                  onClick={handleStartConversation}
                   className="bg-black hover:bg-neutral-800 text-white border-0 h-12 px-8 text-base font-medium rounded-md transition-colors"
                 >
                   Start conversation
@@ -345,6 +353,7 @@ const Index = () => {
             </p>
             <Button 
               size="lg" 
+              onClick={handleStartConversation}
               className="bg-white hover:bg-neutral-100 text-black border-0 h-12 px-8 text-base font-medium rounded-md transition-colors"
             >
               Start now
@@ -354,7 +363,7 @@ const Index = () => {
         </section>
       </main>
 
-      <ChatWidget />
+      <ChatWidget ref={chatWidgetRef} />
     </div>
   );
 };

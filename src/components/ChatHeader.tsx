@@ -8,16 +8,16 @@ interface ChatHeaderProps {
 
 const ChatHeader = ({ onClose, isExpanded, onToggleExpand }: ChatHeaderProps) => {
   return (
-    <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-4 flex items-center justify-between border-b border-slate-700/50">
+    <div className="bg-black text-white p-4 flex items-center justify-between border-b border-neutral-800">
       <div className="flex items-center space-x-4">
         <div className="relative">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
-            <Bot size={16} className="text-white" />
+          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+            <Bot size={16} className="text-black" />
           </div>
         </div>
         <div>
-          <h3 className="font-semibold text-base">AI Assistant</h3>
-          <p className="text-slate-300 text-sm">
+          <h3 className="font-medium text-base tracking-tight">SNGPL AI Assistant</h3>
+          <p className="text-neutral-300 text-sm font-light">
             Ready to help you
           </p>
         </div>
@@ -25,14 +25,14 @@ const ChatHeader = ({ onClose, isExpanded, onToggleExpand }: ChatHeaderProps) =>
       <div className="flex items-center space-x-2">
         <button
           onClick={onToggleExpand}
-          className="p-2 hover:bg-slate-700 rounded-lg transition-colors duration-200"
+          className="p-2 hover:bg-neutral-800 rounded-md transition-colors duration-200"
           aria-label={isExpanded ? "Minimize chat" : "Expand chat"}
         >
           {isExpanded ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
         </button>
         <button
           onClick={onClose}
-          className="p-2 hover:bg-slate-700 rounded-lg transition-colors duration-200"
+          className="p-2 hover:bg-neutral-800 rounded-md transition-colors duration-200"
           aria-label="Close chat"
         >
           <X size={16} />
