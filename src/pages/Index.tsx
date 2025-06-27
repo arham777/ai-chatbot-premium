@@ -1,43 +1,60 @@
-
 import ChatWidget from "@/components/ChatWidget";
+import { Clock, Bot, Zap } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Welcome to Our Platform
-          </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Experience seamless communication with our AI assistant. Click the chat icon in the bottom-right corner to get started with instant support and answers to your questions.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <span className="text-blue-600 font-semibold">24/7</span>
+    <div className="flex flex-col min-h-screen bg-slate-50">
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Welcome to Our Platform
+                </h1>
+                <p className="mx-auto max-w-[700px] text-slate-500 md:text-xl">
+                  Experience seamless communication with our AI assistant. Click the chat icon in the bottom-right corner to get started with instant support and answers to your questions.
+                </p>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Always Available</h3>
-              <p className="text-gray-600">Get instant responses anytime, anywhere with our AI assistant.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <span className="text-green-600 font-semibold">AI</span>
+              <div className="mx-auto grid max-w-sm items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3 pt-12">
+                <div className="grid gap-1 rounded-lg border border-slate-200 p-6 shadow-sm bg-white text-left">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-blue-100 text-blue-600 rounded-lg p-3">
+                      <Clock className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-lg font-bold">Always Available</h3>
+                  </div>
+                  <p className="text-sm text-slate-500">
+                    Get instant responses anytime, anywhere with our AI assistant.
+                  </p>
+                </div>
+                <div className="grid gap-1 rounded-lg border border-slate-200 p-6 shadow-sm bg-white text-left">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-green-100 text-green-600 rounded-lg p-3">
+                      <Bot className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-lg font-bold">Smart Assistance</h3>
+                  </div>
+                  <p className="text-sm text-slate-500">
+                    Powered by advanced AI to understand and help with your needs.
+                  </p>
+                </div>
+                <div className="grid gap-1 rounded-lg border border-slate-200 p-6 shadow-sm bg-white text-left">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-purple-100 text-purple-600 rounded-lg p-3">
+                      <Zap className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-lg font-bold">Lightning Fast</h3>
+                  </div>
+                  <p className="text-sm text-slate-500">
+                    Quick responses to keep your workflow smooth and efficient.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Smart Assistance</h3>
-              <p className="text-gray-600">Powered by advanced AI to understand and help with your needs.</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <span className="text-purple-600 font-semibold">⚡</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Lightning Fast</h3>
-              <p className="text-gray-600">Quick responses to keep your workflow smooth and efficient.</p>
             </div>
           </div>
-        </div>
-      </div>
-      
+        </section>
+      </main>
       <ChatWidget />
     </div>
   );
