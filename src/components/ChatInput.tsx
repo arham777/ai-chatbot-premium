@@ -57,7 +57,7 @@ const ChatInput = ({ onSendMessage }: ChatInputProps) => {
       <div className="flex items-center justify-between mt-3 text-xs text-neutral-500">
         <span className="font-light">Press Enter to send, Shift + Enter for new line</span>
         <div className="flex items-center space-x-2">
-          <span className="w-2 h-2 bg-black rounded-full"></span>
+          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           <span className="font-light">AI is ready</span>
         </div>
       </div>

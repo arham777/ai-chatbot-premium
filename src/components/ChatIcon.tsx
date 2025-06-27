@@ -12,7 +12,7 @@ const ChatIcon = ({ onClick }: ChatIconProps) => {
       aria-label="Open chat"
     >
       <MessageCircle size={18} className="sm:size-5 group-hover:scale-110 transition-transform duration-200" />
-      <div className="absolute -top-1 -right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-white border border-neutral-200 rounded-full"></div>
+      <div className="absolute -top-1 -right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></div>
     </button>
   );
 };
