@@ -3,7 +3,24 @@ interface ChatResponse {
   sources: string[];
 }
 
-export const fetchChatResponse = async (query: string, sessionId: string = "1"): Promise<ChatResponse> => {
+// Function to generate a random session ID
+const generateSessionId = (): string => {
+  // Generate a random string using current timestamp and random number
+  return Date.now().toString(36) + Math.random().toString(36).substring(2);
+};
+
+// Generate session ID once when the module loads (on page load/refresh)
+// This will be created once and reused until page refresh
+const currentSessionId = generateSessionId();
+console.log("Generating new session ID");
+console.log(currentSessionId);
+
+// Get the current session ID
+export const getSessionId = (): string => {
+  return currentSessionId;
+};
+
+export const fetchChatResponse = async (query: string, sessionId: string = getSessionId()): Promise<ChatResponse> => {
   try {
     const url = new URL("http://103.18.20.205:8070/SNGPL-Chatbot");
     url.searchParams.append("session_id", sessionId);
