@@ -1,7 +1,6 @@
 import ChatWidget from "@/components/ChatWidget";
 import { Button } from "@/components/ui/button";
 import WorldMap from "@/components/ui/world-map";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import {
   ArrowRight,
@@ -97,13 +96,8 @@ const Index = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-24 lg:py-32 overflow-hidden">
-          <Spotlight
-            gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(0, 0%, 0%, .12) 0, hsla(0, 0%, 0%, .04) 50%, hsla(0, 0%, 0%, 0) 80%)"
-            gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(0, 0%, 0%, .08) 0, hsla(0, 0%, 0%, .03) 80%, transparent 100%)"
-            gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(0, 0%, 0%, .06) 0, hsla(0, 0%, 0%, .02) 80%, transparent 100%)"
-          />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section className="py-24 lg:py-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-4xl lg:text-6xl tracking-super-tight text-black mb-6">
                 Intelligent assistance for{" "}
