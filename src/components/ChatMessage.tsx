@@ -93,18 +93,31 @@ const ChatMessage = ({ message, onSendMessage }: ChatMessageProps) => {
           <div className="mt-3 pt-2 border-t border-neutral-200">
             <p className="text-xs text-neutral-500 mb-1 font-medium">Sources:</p>
             <div className="flex flex-col gap-1">
-              {message.sources.map((source, index) => (
-                <a 
-                  key={index} 
-                  href={source} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-xs text-blue-600 hover:text-blue-800 flex items-center underline underline-offset-2"
-                >
-                  <ExternalLink size={10} className="mr-1" />
-                  {new URL(source).hostname}
-                </a>
-              ))}
+              {message.sources.map((source, index) => {
+                // Show hostname + pathname, truncate if too long
+                let displayUrl = '';
+                try {
+                  const urlObj = new URL(source);
+                  displayUrl = urlObj.hostname + urlObj.pathname;
+                } catch {
+                  displayUrl = source;
+                }
+                const maxLen = 40;
+                const truncated = displayUrl.length > maxLen ? displayUrl.slice(0, maxLen) + '...' : displayUrl;
+                return (
+                  <a 
+                    key={index} 
+                    href={source} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-xs text-blue-600 hover:text-blue-800 flex items-center underline underline-offset-2"
+                    title={displayUrl}
+                  >
+                    <ExternalLink size={10} className="mr-1" />
+                    {truncated}
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}
