@@ -20,9 +20,12 @@ export const getSessionId = (): string => {
   return currentSessionId;
 };
 
+// Get API base URL from environment variable
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export const fetchChatResponse = async (query: string, sessionId: string = getSessionId()): Promise<ChatResponse> => {
   try {
-    const url = new URL("http://103.18.20.205:8070/SNGPL-Chatbot");
+    const url = new URL(`${API_BASE_URL}SNGPL-Chatbot`);
     url.searchParams.append("session_id", sessionId);
     url.searchParams.append("query", query);
 
@@ -46,7 +49,7 @@ export const fetchChatResponse = async (query: string, sessionId: string = getSe
 
 export const fetchSuggestedQuestions = async (prompt: string): Promise<string[]> => {
   try {
-    const url = new URL("http://103.18.20.205:8070/multi_cmnt_suggest");
+    const url = new URL(`${API_BASE_URL}multi_cmnt_suggest`);
     url.searchParams.append("prompt", prompt);
 
     const response = await fetch(url.toString());
